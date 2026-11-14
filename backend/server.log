@@ -1,0 +1,31 @@
+MongoDB connected
+Server running on port 3000
+[0mGET /api/items [32m200[0m 109.755 ms - 2123[0m
+[0mGET /api/categories [32m200[0m 12.900 ms - 352[0m
+[0mGET /api/categories [36m304[0m 41.007 ms - -[0m
+[0mGET /api/items [32m200[0m 65.721 ms - 2123[0m
+[0mGET /api/categories [36m304[0m 16.762 ms - -[0m
+[0mGET /api/items [36m304[0m 44.904 ms - -[0m
+[0mPOST /api/auth/login [32m200[0m 319.145 ms - 253[0m
+[0mGET /api/admin/orders [36m304[0m 88.280 ms - -[0m
+[0mGET /api/categories [36m304[0m 24.501 ms - -[0m
+[0mGET /api/items [36m304[0m 66.868 ms - -[0m
+[0mPOST /api/auth/login [32m200[0m 251.021 ms - 253[0m
+[0mGET /api/admin/orders [36m304[0m 49.132 ms - -[0m
+[0mGET /api/categories [36m304[0m 11.138 ms - -[0m
+[0mGET /api/categories [36m304[0m 53.961 ms - -[0m
+[0mGET /api/admin/items [36m304[0m 92.054 ms - -[0m
+[0mGET /api/admin/orders [36m304[0m 75.709 ms - -[0m
+[0mGET /api/categories [36m304[0m 14.403 ms - -[0m
+[0mGET /api/items [36m304[0m 45.301 ms - -[0m
+[0mPOST /api/orders [32m201[0m 334.291 ms - 86[0m
+[0mGET /api/categories [36m304[0m 19.674 ms - -[0m
+[0mGET /api/items [32m200[0m 39.035 ms - 2123[0m
+[0mGET /api/categories [36m304[0m 11.998 ms - -[0m
+[0mGET /api/items [36m304[0m 60.656 ms - -[0m
+[0mGET /api/categories [36m304[0m 10.470 ms - -[0m
+[0mGET /api/items [36m304[0m 25.015 ms - -[0m
+[0mGET /api/items?category=6ae5129661fdca9e5435b043 [32m200[0m 22.959 ms - 887[0m
+[0mGET /api/items [36m304[0m 21.040 ms - -[0m
+[0mGET /api/categories [36m304[0m 16.961 ms - -[0m
+[0mGET /api/items [36m304[0m 25.880 ms - -[0m

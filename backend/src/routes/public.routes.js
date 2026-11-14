@@ -1,0 +1,11 @@
+const r = require('express').Router();
+const cat = require('../controllers/category.controller');
+const item = require('../controllers/item.controller');
+const order = require('../controllers/order.controller');
+r.get('/categories', cat.list);
+r.get('/items', item.list);
+r.post('/items/by-ids', item.byIds);
+r.get('/items/:id', item.getOne);
+r.post('/orders', order.create);
+r.post('/payments/create-checkout-session', order.createCheckoutSession);
+module.exports = r;

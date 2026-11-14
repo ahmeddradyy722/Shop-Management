@@ -1,0 +1,22 @@
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const path = require('path');
+const app = express();
+app.use(cors({ origin: 'http://localhost:4200' }));
+app.post('/api/payments/webhook', express.raw({ type: 'application/json' }), require('./controllers/order.controller').handleStripeWebhook);
+app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use(morgan('dev'));
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+app.use('/api/auth', require('./routes/auth.routes'));
+app.use('/api/admin', require('./routes/admin.routes'));
+app.use('/api', require('./routes/public.routes'));
+app.use((req, res) => res.status(404).json({ message: 'Route not found' }));
+app.use((err, req, res, next) => {
+  if (err.name === 'ValidationError') return res.status(400).json({ message: Object.values(err.errors).map(e => e.message).join(', ') });
+  if (err.name === 'CastError') return res.status(400).json({ message: 'Invalid id' });
+  if (err.code === 11000) return res.status(400).json({ message: 'Duplicate value' });
+  console.error(err); res.status(500).json({ message: 'Server error' });
+});
+module.exports = app;

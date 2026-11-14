@@ -1,0 +1,16 @@
+const r = require('express').Router();
+const { protect, managerOnly } = require('../middlewares/auth');
+const cat = require('../controllers/category.controller');
+const item = require('../controllers/item.controller');
+const order = require('../controllers/order.controller');
+const upload = require('../middlewares/upload');
+const uploadController = require('../controllers/upload.controller');
+r.use(protect, managerOnly);
+r.post('/uploads/image', upload.single('image'), uploadController.image);
+r.route('/categories').post(cat.create);
+r.route('/categories/:id').put(cat.update).delete(cat.remove);
+r.route('/items').get(item.adminList).post(item.create);
+r.route('/items/:id').get(item.adminGet).put(item.update).delete(item.remove);
+r.get('/orders', order.list);
+r.route('/orders/:id').get(order.getOne).patch(order.update);
+module.exports = r;
